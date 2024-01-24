@@ -1,1 +1,2 @@
-ghej hej
+def main():
+    pass
