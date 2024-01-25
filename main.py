@@ -1,5 +1,10 @@
-def main():
-    print("wow, this is a cool project!")
+from flask import Flask, render_template
 
-if __name__ == "__main__":
-    main()
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('website.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
