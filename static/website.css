@@ -5,8 +5,41 @@ body {
     font-family:Calibri;
 }
 
+.main-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+
+.main-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+.top-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    gap: 10px;
+    background-color: #0a487a;
+    padding: 10px;
+  }
+
+.top-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+  }
+
 aside {
-    background-color: #d40e0e;
+    background-color: rgb(67, 65, 65);
+    color: white;
+    grid-row: 1 / span 3;   
+    text-align: center;
 }
 
 header, footer {
@@ -14,8 +47,4 @@ header, footer {
     color: white;
     text-align: center;
     padding: 1em;
-}
-
-main {
-    background-color: #0ed43f;
 }
