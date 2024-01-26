@@ -6,7 +6,7 @@ body {
 }
 
 aside {
-    float: left
+    background-color: #d40e0e;
 }
 
 header, footer {
@@ -16,6 +16,6 @@ header, footer {
     padding: 1em;
 }
 
-img {
-    float: right;
-  }
+main {
+    background-color: #0ed43f;
+}
