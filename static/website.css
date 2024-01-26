@@ -1,24 +1,31 @@
 body {
-    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    font-family:Calibri;
+    font-family:"Calibri";
     margin: 0;
     padding: 0;
 }
 
 .main-container {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 10px;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
     background-color: #2196F3;
     padding: 10px;
   }
 
-.main-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
+.item-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+
+.item-container > div {
+    background-color: rgb(43, 80, 135);
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     font-size: 30px;
   }
 
@@ -31,7 +38,7 @@ body {
   }
 
 .top-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgb(66, 102, 156);
     text-align: center;
     padding: 20px 0;
     font-size: 20px;
@@ -39,8 +46,7 @@ body {
 
 aside {
     background-color: rgb(67, 65, 65);
-    color: white;
-    grid-row: 1 / span 3;   
+    color: white;  
     text-align: center;
 }
 
