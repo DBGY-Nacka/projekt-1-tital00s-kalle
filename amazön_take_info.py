@@ -13,7 +13,6 @@ def main():
 
         if response.status_code == 200:
             proccess_page_image_and_names_from_winter_sales_favorite(response)
-            process_page_images_and_names(response)
         else:
             print("Failed to retrieve data from the website.")
     except requests.RequestException as e:
