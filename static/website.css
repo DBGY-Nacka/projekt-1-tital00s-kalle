@@ -56,3 +56,9 @@ header, footer {
     text-align: center;
     padding: 1em;
 }
+
+.about-text{
+  padding: 10px;
+  background-color: #2196F3;
+  color: white;
+}
