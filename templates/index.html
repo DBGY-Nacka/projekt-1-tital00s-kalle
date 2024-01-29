@@ -45,6 +45,13 @@
             </p>
         </aside>
         <div class="item-container">
+            <div>
+                {% for url in image_urls %}
+                    <div>
+                        <img src="{{ url }}" alt="Image Description">
+                    </div>
+                {% endfor %}
+            </div>
             <div>1</div>
             <div>2</div>
             <div>3</div>  
