@@ -23,7 +23,7 @@ body {
   }
 
 .item-container > div {
-    background-color: rgb(43, 80, 135);
+    background-color: rgb(255, 255, 255);
     text-align: center;
     padding: 20px;
     font-size: 30px;
