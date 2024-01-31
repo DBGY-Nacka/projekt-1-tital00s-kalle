@@ -66,13 +66,11 @@
         </aside>
         <div class="item-container">
 
-                {% for url in image_urls %}
+                {% for path in image_paths %}
                     <div>
-                        <img src="{{ url }}" alt="Image Description", height=200>
+                        <img src="{{ path }}" alt="Image not found", height=200>
                     </div>
-                {% endfor %}
-        
-            <div>1</div>
+                {% endfor %} 
             <div>2</div>
             <div>3</div>  
             <div>4</div>

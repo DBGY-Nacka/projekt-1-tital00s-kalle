@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, jsonify
-from fetch_img import winter_sales
+from getdata import get_images
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html", image_urls=winter_sales())
+    return render_template("index.html", image_paths=get_images())
 
 @app.route('/about')
 def about():
