@@ -24,6 +24,10 @@
 
     <div class="main-container">
         <aside>
+            <h2>Filter</h2>
+            <p>Price</p>
+            <input type="range" min="0" max="1000" value="500" class="slider" id="myRange" oninput="updateSliderValue()">
+            <span id="sliderValue">500</span>
             <p>Hello world<br>
                 Hello world<br>
                 Hello world<br>
@@ -85,5 +89,29 @@
     <footer>
         <p>Copyright 2024&copy;</p>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function updateSliderValue() {
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("sliderValue");
+            output.innerHTML = slider.value;
+
+            // Send the slider value to the Flask backend
+            $.ajax({
+                url: "/slider",  // The URL to handle the slider value in the Flask app
+                type: "post",
+                contentType: "application/json",
+                data: JSON.stringify({sliderValue: slider.value}),
+                success: function(response) {
+                    // Handle success (you can update the UI based on the response if needed)
+                    console.log(response);
+                },
+                error: function(error) {
+                    // Handle error
+                    console.log(error);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
