@@ -19,15 +19,15 @@ cursor = conn.cursor()
 # """)
 
 product_data = (
-    3,  # productid
-    'Jeans',  # name
-    'These jeans fit any occasion and are a perfect addition to your wardrobe',  # description
-    29.99,  # price
-    62,  # inventory_count
-    'Blue',  # color
+    6,  # productid
+    'Boots',  # name
+    'This is a sturdy pair of boots for a person ready for an adventure',  # description
+    49.99,  # price
+    189,  # inventory_count
+    'Black',  # color
     'Clothes',  # category
-    4,  # rating    
-    "images\jeans.jpg" #image path
+    5,  # rating    
+    "static/images/boots.jpg" #image path
 )
 
 cursor.execute("""
@@ -35,6 +35,7 @@ INSERT INTO Products (productid, name, description, price, inventory_count, colo
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 """, product_data)
 
+print("Data succsesfuly added")
 conn.commit()
 conn.close()
  
