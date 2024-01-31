@@ -59,5 +59,5 @@ def all_deals():
     return return_list
 
 # Call the functions
-winter_sales_images = winter_sales()
+winter_sales_images = all_deals()
 print(winter_sales_images)
