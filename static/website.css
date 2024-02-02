@@ -7,13 +7,13 @@ body {
 }
 
 .color-container {
-    text-align: center;
-    padding-left: 0px;
+    text-align: left;
+    padding-left: 90px;
 }
 
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     grid-gap: 10px;
     background-color: #2196F3;
     padding: 10px;
