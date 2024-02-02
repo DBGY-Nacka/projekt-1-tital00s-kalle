@@ -7,9 +7,9 @@ app = Flask(__name__)
 def home():
     return render_template("index.html", image_paths=get_images())
 
-@app.route('/about')
+@app.route('/games')
 def about():
-    return render_template('about.html')
+    return render_template('products.html')
 
 @app.route('/slider', methods=['POST'])
 

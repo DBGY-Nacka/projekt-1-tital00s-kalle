@@ -8,7 +8,7 @@ body {
 
 .color-container {
     text-align: left;
-    padding-left: 90px;
+    padding-left: 10px;
 }
 
 .main-container {
@@ -50,8 +50,20 @@ body {
     text-align: center;
     padding: 20px 0;
     font-size: 20px;
+    font-family: Calibri;
+    border-radius: 20px;
+    border: none;
   }
 
+.top-container > button:hover {
+    background-color: rgb(103, 158, 239);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    font-family: Calibri;
+    border-radius: 20px;
+    border: none;
+  }
 aside {
     background-color: rgb(67, 65, 65);
     color: white;  
