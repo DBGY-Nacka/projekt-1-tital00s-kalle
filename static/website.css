@@ -45,7 +45,7 @@ body {
     padding: 10px;
   }
 
-.top-container > div {
+.top-container > button {
     background-color: rgb(66, 102, 156);
     text-align: center;
     padding: 20px 0;
