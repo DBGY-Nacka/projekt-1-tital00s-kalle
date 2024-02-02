@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from getdata import get_images
 
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -22,4 +21,4 @@ def handle_slider():
     return slider_value
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
