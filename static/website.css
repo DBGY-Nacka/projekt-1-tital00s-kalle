@@ -27,13 +27,18 @@ body {
   }
 
 
-
 .item-container > div {
     background-color: rgb(255, 255, 255);
     text-align: center;
     padding: 10px;
     font-size: 30px;
     border-radius: 30px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .item-container > div > img {
+    padding: 10px;
+    height: 200px;
     aspect-ratio: 1 / 1;
   }
 
