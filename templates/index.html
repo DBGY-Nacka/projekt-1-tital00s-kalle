@@ -11,14 +11,19 @@
     </header>
 
     <div class="top-container">
-        <button onclick="location.href='/home'" class="button">Home</button>
-        <button onclick="location.href='/electronics'" class="button">Electronics</button>
-        <button onclick="location.href='/games'" class="button">Games</button>
-        <button onclick="location.href='/toys'" class="button">Toys</button>
-        <button onclick="location.href='/books'" class="button">Books</button>
-        <button onclick="location.href='/health'" class="button">Health</button>
-        <button onclick="location.href='/clothes'" class="button">Clothes</button>
-        <button onclick="location.href='/adults'" class="button">Adults</button>   
+        <script>
+            function redirectToProducts(categoryName) {
+                window.location.href = '/products?category=' + categoryName;
+            }
+        </script>
+        <button onclick="redirectToProducts('Home')" class="button">Home</button>
+        <button onclick="redirectToProducts('Electronics')" class="button">Electronics</button>
+        <button onclick="redirectToProducts('Games')" class="button">Games</button>
+        <button onclick="redirectToProducts('Toys')" class="button">Toys</button>
+        <button onclick="redirectToProducts('Books')" class="button">Books</button>
+        <button onclick="redirectToProducts('Health')" class="button">Health</button>
+        <button onclick="redirectToProducts('Clothes')" class="button">Clothes</button>
+        <button onclick="redirectToProducts('Adults')" class="button">Adults</button>
     </div>
 
     <div class="main-container">
@@ -53,7 +58,9 @@
         <div class="item-container">
                 {% for path in image_paths %}
                     <div>
-                        <img src="{{ path }}" alt="Image not found">
+                        <div>{{ path[0] }}</div>
+                        <img src="{{ path[2] }}" alt="Image not found">
+                        <div>{{ path[1] }}&#36;</div>
                     </div>
                 {% endfor %} 
         </div>

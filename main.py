@@ -5,11 +5,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html", image_paths=get_images())
+    return render_template("index.html", image_paths=get_images(None))
 
-@app.route('/games')
-def about():
-    return render_template('products.html')
+@app.route('/products')
+def products():
+    category = request.args.get('category')
+    return render_template('products.html', image_paths=get_images(category))
 
 @app.route('/slider', methods=['POST'])
 
