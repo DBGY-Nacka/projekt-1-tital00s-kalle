@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <title>Amazon</title>
     <link rel="stylesheet" type="text/css" href="static/website.css">
+    <style>
+        /* Add this style block */
+        body {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Amazon</h1>
+        <div style="text-align: right;">
+            <button onclick="" class="button">
+                <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
+            </button>
+        </div>
+        <div style="text-align: left;">
+            <a href="/login" style="color: white;">Login</a>
+        </div>
+        <div style="text-align: left;">
+            <a href="/register" style="color: white;">Register</a>
+        </div>
+
+        <div style="text-align: left;">
+            <a href="/login">Login</a>
+        </div>
+        <div style="text-align: left;">
+            <a href="/register">Register</a>
+        </div>
+        <div style="text-align: right;">
+            <form action="/search" method="post">
+                <input type="text" name="search" placeholder="Search..">
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </header>
 
     <div class="top-container">
+    
         <script>
             function redirectToProducts(categoryName) {
                 window.location.href = '/products?category=' + categoryName;
