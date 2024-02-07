@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from getdata import get_images
 
+
 app = Flask(__name__)
 
 @app.route("/")
