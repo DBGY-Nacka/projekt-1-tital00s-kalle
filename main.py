@@ -10,7 +10,7 @@ def home():
 
 @app.route('/checkout')
 def checkout():
-    return render_template('checkout.html')
+    return render_template('checkout.html', image_paths=get_images(None))
 
 @app.route('/products')
 def products():
