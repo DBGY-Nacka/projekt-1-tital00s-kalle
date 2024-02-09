@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            margin: auto;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Makes sure the padding does not affect the overall width */
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .total-price {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Checkout</h2>
+        <div class="cart-items">
+            <h3>Your Cart</h3>
+
+            <div id="cart-items-container">
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+                        let cartContainer = document.getElementById('cart-items-container');
+                        if (cart.length > 0) {
+                            cart.forEach(item => {
+                                let itemElement = document.createElement('div');
+                                itemElement.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+                                cartContainer.appendChild(itemElement);
+                            });
+                        } else {
+                            cartContainer.textContent = 'Your cart is empty.';
+                        }
+                    });
+                </script>                
+            </div>
+
+            <ul>
+                <!-- Dynamically generated cart items -->
+                {% for item in cart_items %}
+                    <li>{{ item.name }} - ${{ item.price }} x {{ item.quantity }}</li>
+                {% endfor %}
+            </ul>
+            <p class="total-price">Total Price: ${{ total_price }}</p>
+        </div>
+
+        <form action="/submit-checkout" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <!-- Add more fields as needed -->
+
+            <input type="submit" value="Place Order" class="btn">
+        </form>
+    </div>
+</body>
+</html>

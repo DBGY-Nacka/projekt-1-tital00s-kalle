@@ -16,12 +16,11 @@
         <h1>Amazon</h1>
         <script>
             function redirectToCheckout() {
-                window.location.href = '/checkout'; // Ensure this URL matches your site's checkout page URL
+                window.location.href = '/checkout'; 
             }
     </script>
 
     <div style="text-align: right;">
-        <!-- Update the onclick event to use the new redirectToCheckout function -->
         <button onclick="redirectToCheckout('Cart')" class="button">
             <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
         </button>
@@ -88,15 +87,34 @@
         </aside>
 
         <div class="item-container">
-                {% for path in image_paths %}
-                    <div>
-                        <div>{{ path[0] }}</div>
-                        <img src="{{ path[2] }}" alt="Image not found">
-                        <div>{{ path[1] }}&#36;</div>
-                        <button onclick="addToCart()" class="add-to-cart-button">Add to Cart</button>
-                    </div>
-                {% endfor %} 
+            <script>
+                // This function would be called by each "Add to Cart" button
+                function addToCart(itemName, itemId, itemPrice) {
+                    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+                    let found = cart.find(item => item.id === itemId);
+                    if (found) {
+                        found.quantity += 1; // Increment quantity if item is already in cart
+                    } else {
+                        cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1 }); // Add new item to cart
+                    }
+                    sessionStorage.setItem('cart', JSON.stringify(cart)); // Update cart in session storage
+                    alert(`${itemName} added to cart`); // Feedback to user
+                }
+            </script>
+
+            {% for path in image_paths %}
+            <div>
+                <div>{{ path[0] }}</div>
+                <img src="{{ path[2] }}" alt="Image not found">
+                <div>{{ path[1] }}&#36;</div>
+                <!-- Adjust the onclick event to pass item details -->
+                <button onclick="addToCart('{{ path[0] }}', '{{ path[3] }}', '{{ path[1] }}')" class="add-to-cart-button">Add to Cart</button>
+            </div>
+            {% endfor %}
+
+            
         </div>
+
     </div>
 
     <footer>
