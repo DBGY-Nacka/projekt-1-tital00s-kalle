@@ -26,12 +26,6 @@
             <a href="/register" style="color: white;">Register</a>
         </div>
 
-        <div style="text-align: left;">
-            <a href="/login">Login</a>
-        </div>
-        <div style="text-align: left;">
-            <a href="/register">Register</a>
-        </div>
         <div style="text-align: right;">
             <form action="/search" method="post">
                 <input type="text" name="search" placeholder="Search..">
@@ -87,14 +81,15 @@
         </aside>
 
         <div class="item-container">
-                {% for path in image_paths %}
-                    <div>
-                        <div>{{ path[0] }}</div>
-                        <img src="{{ path[2] }}" alt="Image not found">
-                        <div>{{ path[1] }}&#36;</div>
-                    </div>
-                {% endfor %} 
-        </div>
+            {% for path in image_paths %}
+                <div>
+                    <div>{{ path[0] }}</div>
+                    <img src="{{ path[2] }}" alt="Image not found">
+                    <div>{{ path[1] }}&#36;</div>
+                    <button onclick="addToCart()" class="add-to-cart-button">Add to Cart</button>
+                </div>
+            {% endfor %} 
+    </div>
     </div>
 
     <footer>
