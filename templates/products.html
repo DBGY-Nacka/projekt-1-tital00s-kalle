@@ -8,6 +8,24 @@
 <body>
     <header>
         <h1>Amazon</h1>
+        <div style="text-align: right;">
+            <button onclick="" class="button">
+                <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
+            </button>
+        </div>
+        <div style="text-align: left;">
+            <a href="/login" style="color: white;">Login</a>
+        </div>
+        <div style="text-align: left;">
+            <a href="/register" style="color: white;">Register</a>
+        </div>
+
+        <div style="text-align: right;">
+            <form action="/search" method="post">
+                <input type="text" name="search" placeholder="Search..">
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </header>
 
     <div class="top-container">
@@ -61,7 +79,7 @@
                         <div>{{ path[0] }}</div>
                         <img src="{{ path[2] }}" alt="Image not found">
                         <div>{{ path[1] }}&#36;</div>
-                        <button onclick= class="add-to-cart-button">Add to Cart</button>
+                        <button onclick="" class="add-to-cart-button">Add to Cart</button>
                     </div>
                 {% endfor %} 
         </div>
