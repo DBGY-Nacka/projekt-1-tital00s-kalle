@@ -8,6 +8,10 @@ app = Flask(__name__)
 def home():
     return render_template("index.html", image_paths=get_images(None))
 
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html', image_paths=get_images(None))
+
 @app.route('/products')
 def products():
     category = request.args.get('category')
