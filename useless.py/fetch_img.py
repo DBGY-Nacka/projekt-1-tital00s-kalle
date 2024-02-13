@@ -35,7 +35,7 @@ def winter_sales():
                     if img_tag and img_tag.has_attr('src'):
                         img_src = img_tag['src']
                         if ".jpg" in img_src:
-                            return_list.append(img_src)  # Append only the image source
+                            return_list.append(img_src)
 
     return return_list
 
@@ -55,7 +55,7 @@ def all_deals():
                     if img_tag and img_tag.has_attr('src'):
                         img_src = img_tag['src']
                         if ".jpg" in img_src:
-                            return_list.append(img_src)  # Append only the image source
+                            return_list.append(img_src)
     return return_list
 
 # Call the functions
