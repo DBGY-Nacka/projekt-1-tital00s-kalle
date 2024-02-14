@@ -56,11 +56,6 @@
         <button id = "AdultsButton" onclick="redirectToProducts('Adults')" class="button">Adults</button>
     </div>
 
-    <script>
-        function sortByCategory() {
-
-        }
-    </script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -70,11 +65,20 @@
             // Attach event listeners to each button
             buttons.forEach(function (button) {
               button.addEventListener('click', function () {
-                // Get the category name from the button's text content
+               
                 var categoryName = button.textContent.trim();
                 updateContent(categoryName);
               });
             });
+            
+            function updateContent(categoryName) {
+                // Update page
+                var contentDiv = document.getElementById('content');
+                contentDiv.innerHTML = '<h2>Displaying ' + categoryName + ' products</h2>';
+              }
+            });
+    </script>
+        
 
     <div class="main-container">
         <aside>
