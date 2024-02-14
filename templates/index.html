@@ -59,10 +59,20 @@
     <div class="main-container">
         <aside>
             <h2>Filter</h2>
-            <p>Price</p>
-            <input type="range" min="0" max="1000" value="500" class="slider" id="myRange" oninput="updateSliderValue()">
-            <span id="sliderValue">500</span>
+
+            <h2>Filter</h2>
+
+            <p>Minimum Price</p>
+            <input type="range" min="0" max="1000" value="0" class="slider" id="minRange" oninput="updateSliderValue_min()">
+            <span id="minValue">0</span>
+
+            <p>Maximum Price</p>
+            <input type="range" min="0" max="1000" value="1000" class="slider" id="maxRange" oninput="updateSliderValue_max()">
+            <span id="maxValue">1000</span
+
+            </div>
             <p>Color</p>
+
             <div class="color-container">
                 <input type="checkbox" id="black" name="black" value="color">
                 <label for="black"> Black</label><br>
@@ -120,27 +130,45 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function updateSliderValue() {
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("sliderValue");
-            output.innerHTML = slider.value;
 
-            // Send the slider value to the Flask backend
+        function updateSliderValue_min() {
+            var minSlider = document.getElementById("minRange");
+            var minValue = document.getElementById("minValue");
+            minValue.innerHTML = minSlider.value;
+
             $.ajax({
-                url: "/slider",  // The URL to handle the slider value in the Flask app
+                url: "/slider_min",
                 type: "post",
                 contentType: "application/json",
-                data: JSON.stringify({sliderValue: slider.value}),
+                data: JSON.stringify({sliderValue: minSlider.value}),
                 success: function(response) {
-                    // Handle success (you can update the UI based on the response if needed)
                     console.log(response);
                 },
                 error: function(error) {
-                    // Handle error
                     console.log(error);
                 }
             });
         }
+
+        function updateSliderValue_max() {
+            var maxSlider = document.getElementById("maxRange");
+            var maxValue = document.getElementById("maxValue");
+            maxValue.innerHTML = maxSlider.value;
+
+            $.ajax({
+                url: "/slider_max",
+                type: "post",
+                contentType: "application/json",
+                data: JSON.stringify({sliderValue: maxSlider.value}),
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
