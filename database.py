@@ -30,12 +30,7 @@ product_data = (
     "static/images/boots.jpg" #image path
 )
 
-cursor.execute("""
-INSERT INTO Products (productid, name, description, price, inventory_count, color, category, rating, image)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-""", product_data)
 
-print("Data succsesfuly added")
 conn.commit()
 conn.close()
  
