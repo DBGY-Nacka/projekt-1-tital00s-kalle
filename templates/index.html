@@ -4,13 +4,44 @@
     <meta charset="UTF-8">
     <title>Amazon</title>
     <link rel="stylesheet" type="text/css" href="static/website.css">
+    <style>
+        /* Add this style block */
+        body {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Amazon</h1>
+        <script>
+            function redirectToCheckout() {
+                window.location.href = '/checkout'; 
+            }
+    </script>
+
+    <div style="text-align: right;">
+        <button onclick="redirectToCheckout('Cart')" class="button">
+            <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
+        </button>
+
+        <div style="text-align: left;">
+            <a href="/login" style="color: white;">Login</a>
+        </div>
+        <div style="text-align: left;">
+            <a href="/register" style="color: white;">Register</a>
+        </div>
+
+        <div style="text-align: right;">
+            <form action="/search" method="post">
+                <input type="text" name="search" placeholder="Search..">
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </header>
 
     <div class="top-container">
+    
         <script>
             function redirectToProducts(categoryName) {
                 window.location.href = '/products?category=' + categoryName;
@@ -56,14 +87,34 @@
         </aside>
 
         <div class="item-container">
-                {% for path in image_paths %}
-                    <div>
-                        <div>{{ path[0] }}</div>
-                        <img src="{{ path[2] }}" alt="Image not found">
-                        <div>{{ path[1] }}&#36;</div>
-                    </div>
-                {% endfor %} 
+            <script>
+                // This function would be called by each "Add to Cart" button
+                function addToCart(itemName, itemId, itemPrice) {
+                    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+                    let found = cart.find(item => item.id === itemId);
+                    if (found) {
+                        found.quantity += 1; // Increment quantity if item is already in cart
+                    } else {
+                        cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1 }); // Add new item to cart
+                    }
+                    sessionStorage.setItem('cart', JSON.stringify(cart)); // Update cart in session storage
+                    alert(`${itemName} added to cart`); // Feedback to user
+                }
+            </script>
+
+            {% for path in image_paths %}
+            <div>
+                <div>{{ path[0] }}</div>
+                <img src="{{ path[2] }}" alt="Image not found">
+                <div>{{ path[1] }}&#36;</div>
+                <!-- Adjust the onclick event to pass item details -->
+                <button onclick="addToCart('{{ path[0] }}', '{{ path[3] }}', '{{ path[1] }}')" class="add-to-cart-button">Add to Cart</button>
+            </div>
+            {% endfor %}
+
+            
         </div>
+
     </div>
 
     <footer>

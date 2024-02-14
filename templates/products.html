@@ -8,9 +8,28 @@
 <body>
     <header>
         <h1>Amazon</h1>
+        <div style="text-align: right;">
+            <button onclick="" class="button">
+                <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
+            </button>
+        </div>
+        <div style="text-align: left;">
+            <a href="/login" style="color: white;">Login</a>
+        </div>
+        <div style="text-align: left;">
+            <a href="/register" style="color: white;">Register</a>
+        </div>
+
+        <div style="text-align: right;">
+            <form action="/search" method="post">
+                <input type="text" name="search" placeholder="Search..">
+                <button type="submit">Search</button>
+            </form>
+        </div>
     </header>
 
     <div class="top-container">
+        <!-- Button for each category on top of the page -->
         <script>
             function redirectToProducts(categoryName) {
                 window.location.href = '/products?category=' + categoryName;
@@ -27,6 +46,7 @@
     </div>
 
     <div class="main-container">
+        <!-- Creates filtering at the left side --> 
         <aside>
             <h2>Filter</h2>
             <p>Price</p>
@@ -55,13 +75,14 @@
             <div>
         </aside>
 
-        <div class="item-container">
+        <div class="item-container">  
+            <!-- create "add to cart" button for each product  -->
                 {% for path in image_paths %}
                     <div>
                         <div>{{ path[0] }}</div>
                         <img src="{{ path[2] }}" alt="Image not found">
                         <div>{{ path[1] }}&#36;</div>
-                        <button onclick= class="add-to-cart-button">Add to Cart</button>
+                        <button onclick="" class="add-to-cart-button">Add to Cart</button>
                     </div>
                 {% endfor %} 
         </div>
