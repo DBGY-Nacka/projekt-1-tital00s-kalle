@@ -5,7 +5,6 @@
     <title>Amazon</title>
     <link rel="stylesheet" type="text/css" href="static/website.css">
     <style>
-        /* Add this style block */
         body {
             color: white;
         }
@@ -88,17 +87,16 @@
 
         <div class="item-container">
             <script>
-                // This function would be called by each "Add to Cart" button
                 function addToCart(itemName, itemId, itemPrice) {
                     let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
                     let found = cart.find(item => item.id === itemId);
                     if (found) {
-                        found.quantity += 1; // Increment quantity if item is already in cart
+                        found.quantity += 1; 
                     } else {
-                        cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1 }); // Add new item to cart
+                        cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1 });
                     }
-                    sessionStorage.setItem('cart', JSON.stringify(cart)); // Update cart in session storage
-                    alert(`${itemName} added to cart`); // Feedback to user
+                    sessionStorage.setItem('cart', JSON.stringify(cart)); 
+                    alert(`${itemName} added to cart`);
                 }
             </script>
 

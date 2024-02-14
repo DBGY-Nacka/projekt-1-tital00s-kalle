@@ -42,7 +42,7 @@
             margin-top: 8px;
             border-radius: 4px;
             border: 1px solid #ddd;
-            box-sizing: border-box; /* Makes sure the padding does not affect the overall width */
+            box-sizing: border-box; 
         }
         .btn {
             background-color: #007bff;
@@ -87,7 +87,6 @@
             </div>
 
             <ul>
-                <!-- Dynamically generated cart items -->
                 {% for item in cart_items %}
                     <li>{{ item.name }} - ${{ item.price }} x {{ item.quantity }}</li>
                 {% endfor %}
@@ -105,7 +104,6 @@
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" required>
 
-            <!-- Add more fields as needed -->
 
             <input type="submit" value="Place Order" class="btn">
         </form>
