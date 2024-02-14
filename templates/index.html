@@ -17,7 +17,7 @@
             function redirectToCheckout() {
                 window.location.href = '/checkout'; 
             }
-    </script>
+        </script>
 
     <div style="text-align: right;">
         <button onclick="redirectToCheckout('Cart')" class="button">
@@ -46,15 +46,35 @@
                 window.location.href = '/products?category=' + categoryName;
             }
         </script>
-        <button onclick="redirectToProducts('Home')" class="button">Home</button>
-        <button onclick="redirectToProducts('Electronics')" class="button">Electronics</button>
-        <button onclick="redirectToProducts('Games')" class="button">Games</button>
-        <button onclick="redirectToProducts('Toys')" class="button">Toys</button>
-        <button onclick="redirectToProducts('Books')" class="button">Books</button>
-        <button onclick="redirectToProducts('Health')" class="button">Health</button>
-        <button onclick="redirectToProducts('Clothes')" class="button">Clothes</button>
-        <button onclick="redirectToProducts('Adults')" class="button">Adults</button>
+        <button id = "HomeBUtton" onclick="redirectToProducts('Home')" class="button">Home</button>
+        <button id = "EletronicsButton" onclick="redirectToProducts('Electronics')" class="button">Electronics</button>
+        <button id = "GamesButton" onclick="redirectToProducts('Games')" class="button">Games</button>
+        <button id = "ToysButton" onclick="redirectToProducts('Toys')" class="button">Toys</button>
+        <button id = "BooksButton" onclick="redirectToProducts('Books')" class="button">Books</button>
+        <button id = "HealthButton" onclick="redirectToProducts('Health')" class="button">Health</button>
+        <button id = "ClothesButton" onclick="redirectToProducts('Clothes')" class="button">Clothes</button>
+        <button id = "AdultsButton" onclick="redirectToProducts('Adults')" class="button">Adults</button>
     </div>
+
+    <script>
+        function sortByCategory() {
+
+        }
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all buttons by their class name
+            var buttons = document.querySelectorAll('.button');
+      
+            // Attach event listeners to each button
+            buttons.forEach(function (button) {
+              button.addEventListener('click', function () {
+                // Get the category name from the button's text content
+                var categoryName = button.textContent.trim();
+                updateContent(categoryName);
+              });
+            });
 
     <div class="main-container">
         <aside>
