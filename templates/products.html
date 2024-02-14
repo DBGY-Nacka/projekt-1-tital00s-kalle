@@ -8,11 +8,17 @@
 <body>
     <header>
         <h1>Amazon</h1>
+        <script>
+            function redirectToCheckout() {
+                window.location.href = '/checkout'; 
+            }
+        </script>
         <div style="text-align: right;">
-            <button onclick="" class="button">
+            <button onclick="redirectToCheckout('Cart')" class="button">
                 <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
             </button>
         </div>
+
         <div style="text-align: left;">
             <a href="/login" style="color: white;">Login</a>
         </div>
@@ -75,6 +81,12 @@
             <div>
         </aside>
 
+
+        <script>
+            function addToCart(itemName, itemID, itemPrice) {
+
+            }
+        </script>
         <div class="item-container">  
             <!-- create "add to cart" button for each product  -->
                 {% for path in image_paths %}
