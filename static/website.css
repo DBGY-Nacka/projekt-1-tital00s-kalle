@@ -15,7 +15,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-gap: 10px;
-    background-color: #2196F3;
+    background-color: #000000;
     padding: 10px;
   }
 
@@ -23,7 +23,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    background-color: #2196F3;
+    background-color: #000000;
   }
 
 
@@ -46,12 +46,12 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
     gap: 10px;
-    background-color: #0a487a;
+    background-color: #000000;
     padding: 10px;
   }
 
 .top-container > button {
-    background-color: rgb(66, 102, 156);
+    background-color: #ff9404;
     text-align: center;
     padding: 20px 0;
     font-size: 20px;
