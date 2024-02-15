@@ -46,6 +46,7 @@
                 window.location.href = '/products?category=' + categoryName;
             }
         </script>
+
         <button id = "HomeBUtton" onclick="redirectToProducts('Home')" class="button">Home</button>
         <button id = "EletronicsButton" onclick="redirectToProducts('Electronics')" class="button">Electronics</button>
         <button id = "GamesButton" onclick="redirectToProducts('Games')" class="button">Games</button>
@@ -57,26 +58,12 @@
     </div>
 
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all buttons by their class name
-            var buttons = document.querySelectorAll('.button');
-      
-            // Attach event listeners to each button
-            buttons.forEach(function (button) {
-              button.addEventListener('click', function () {
-               
-                var categoryName = button.textContent.trim();
-                updateContent(categoryName);
-              });
-            });
-            
+    <script> 
             function updateContent(categoryName) {
-                // Update page
+                // This is supposed to be used on click for buttons above. Needs work. Sort by category
                 var contentDiv = document.getElementById('content');
                 contentDiv.innerHTML = '<h2>Displaying ' + categoryName + ' products</h2>';
-              }
-            });
+              } 
     </script>
         
 
