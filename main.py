@@ -28,13 +28,13 @@ def products():
 
 def handle_slider():
     data = request.get_json()
-    slider_value_max = data['maxValue']
-    print(slider_value_max)
+    slider_value_min = data.get('minValue')
+    slider_value_max = data.get('maxValue')
+
+    print(f"Min Slider Value: {slider_value_min}, Max Slider Value: {slider_value_max}")
     
-    slider_value_min = data['minValue']
-    print(slider_value_min)
-    
-    return slider_value_max, slider_value_min
+    return jsonify({"minValue": slider_value_min, "maxValue": slider_value_max}), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True)

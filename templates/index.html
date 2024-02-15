@@ -87,14 +87,15 @@
             <h2>Filter</h2>
 
             <p>Minimum Price</p>
-            <input type="range" min="0" max="1000" value="0" class="slider" id="minRange" oninput="updateSliderValue_min()">
-            <span id="minValue">0</span>
+            <input type="range" min="0" max="1000" value="0" class="slider" id="minRange" oninput="updateSliderValue()">
+            <span id="minValueDisplay">0</span>
 
             <p>Maximum Price</p>
-            <input type="range" min="0" max="1000" value="1000" class="slider" id="maxRange" oninput="updateSliderValue_max()">
-            <span id="maxValue">1000</span
+            <input type="range" min="0" max="1000" value="1000" class="slider" id="maxRange" oninput="updateSliderValue()">
+            <span id="maxValueDisplay">1000</span>
 
-            </div>
+
+            
             <p>Color</p>
 
             <div class="color-container">
@@ -153,37 +154,23 @@
         <p>&copy; Copyright 2024 Amazon.se</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
 
-        function updateSliderValue_min() {
+        function updateSliderValue() {
             var minSlider = document.getElementById("minRange");
-            var minValue = document.getElementById("minValue");
-            minValue.innerHTML = minSlider.value;
-
-            $.ajax({
-                url: "/slider_min",
-                type: "post",
-                contentType: "application/json",
-                data: JSON.stringify({sliderValue: minSlider.value}),
-                success: function(response) {
-                    console.log(response);
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
-        }
-
-        function updateSliderValue_max() {
             var maxSlider = document.getElementById("maxRange");
-            var maxValue = document.getElementById("maxValue");
-            maxValue.innerHTML = maxSlider.value;
-
+        
+            // Update display values
+            document.getElementById("minValueDisplay").innerHTML = minSlider.value;
+            document.getElementById("maxValueDisplay").innerHTML = maxSlider.value;
+        
+            // Send AJAX request with both values
             $.ajax({
-                url: "/slider_max",
-                type: "post",
+                url: "/slider", // Ensure this URL matches your Flask route for handling slider values
+                type: "POST",
                 contentType: "application/json",
-                data: JSON.stringify({sliderValue: maxSlider.value}),
+                data: JSON.stringify({minValue: minSlider.value, maxValue: maxSlider.value}),
                 success: function(response) {
                     console.log(response);
                 },
@@ -191,8 +178,9 @@
                     console.log(error);
                 }
             });
-        }
+        }        
 
     </script>
+    
 </body>
 </html>
