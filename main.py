@@ -8,15 +8,12 @@ app = Flask(__name__)
 def home():
     return render_template("index.html", image_paths=get_images(None))
 
-# @app.route('/checkout')
-# def checkout():
-#     return render_template('checkout.html', image_paths=get_images(None))
-app.secret_key = 'your_secret_key'  # Needed to use sessions
+
+app.secret_key = 'your_secret_key'
 
 @app.route('/checkout')
 def checkout():
-    # Assuming cart items are stored in session['cart_items']
-    # Example format: [{'name': 'Product 1', 'price': 10, 'quantity': 1}, ...]
+
     cart_items = session.get('cart_items', [])
     total_price = sum(item['price'] * item['quantity'] for item in cart_items)
     
@@ -31,10 +28,13 @@ def products():
 
 def handle_slider():
     data = request.get_json()
-    slider_value = data['sliderValue']
-    print(slider_value)
+    slider_value_max = data['maxValue']
+    print(slider_value_max)
     
-    return slider_value
+    slider_value_min = data['minValue']
+    print(slider_value_min)
+    
+    return slider_value_max, slider_value_min
 
 if __name__ == "__main__":
     app.run(debug=True)
