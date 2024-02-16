@@ -19,7 +19,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-gap: 10px;
-    background-color: #000000;
+    background-color: #716868;
     padding: 10px;
   }
 
@@ -27,13 +27,13 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    background-color: #000000;
+    background-color: #716868;
   }
 
 
 .item-container > div {
   /* Each product square */
-    background-color: rgb(255, 255, 255);
+    background-color: #FFFFFF;
     text-align: center;
     padding: 10px;
     font-size: 30px;
