@@ -1,7 +1,7 @@
 
 body {
   /* Standard color */
-    background-color: #f4f4f4;
+    background-color: #FFFFFF;
     color: rgb(67, 65, 65);
     font-family:"Calibri";
     margin: 0;
@@ -19,7 +19,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-gap: 10px;
-    background-color: #716868;
+    background-color: #BEBFC5;
     padding: 10px;
   }
 
@@ -27,7 +27,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
-    background-color: #716868;
+    background-color: #BEBFC5;
   }
 
 
@@ -52,13 +52,13 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
     gap: 10px;
-    background-color: #000000;
+    background-color: #726E97;
     padding: 10px;
   }
 
 .top-container > button {
   /* Category buttons */
-    background-color: #ff9404;
+    background-color: #ff5964;
     text-align: center;
     padding: 20px 0;
     font-size: 20px;
@@ -69,7 +69,7 @@ body {
 
 .top-container > button:hover {
   /* Category button hover color */
-    background-color: rgb(103, 158, 239);
+    background-color: #ff727b;
     text-align: center;
     padding: 20px 0;
     font-size: 20px;
@@ -80,21 +80,15 @@ body {
   
 aside {
   /* Filter to the left side */ 
-    background-color: rgb(67, 65, 65);
+    background-color: #726E97;
     color: white;  
     text-align: center;
     border-radius: 30px;
 }
 
 header, footer {
-    background-color: #474747;
+    background-color: #726E97;
     color: white;
     text-align: center;
     padding: 1em;
-}
-
-.about-text{
-  padding: 10px;
-  background-color: #2196F3;
-  color: white;
 }
