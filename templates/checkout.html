@@ -1,73 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<div id="cover"></div>
 <head>
+    <link rel="stylesheet" type="text/css" href="static/checkout.css">
     <meta charset="UTF-8">
     <title>Checkout</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            margin: auto;
-            width: 50%;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #333;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        label {
-            display: block;
-            margin-top: 20px;
-            color: #333;
-        }
-        input[type="text"],
-        input[type="email"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 8px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            box-sizing: border-box; 
-        }
-        .btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .total-price {
-            font-weight: bold;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <h2>Checkout</h2>
         <div class="cart-items">
             <h3>Your Cart</h3>
-            <div id="cart-items-container">
+
+            <div id="cart-items-container"> <!-- Display the cart items using JavaScript -->
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
@@ -94,17 +39,16 @@
                         }
                     });
                 </script>
-                
             </div>
 
-            <ul>
+            <ul> <!-- Display the cart items -->
                 {% for item in cart_items %}
                     <li>{{ item.name }} - ${{ item.price }} x {{ item.quantity }}</li>
                 {% endfor %}
             </ul>
         </div>
 
-        <form action="/submit-checkout" method="post">
+        <form id="checkoutForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -114,9 +58,24 @@
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" required>
 
-
             <input type="submit" value="Place Order" class="btn">
         </form>
     </div>
+
+    <div id="overlay"> <!-- Overlay and pop-up message -->
+        <div id="message">Your order has been placed!</div>
+    </div>
+
+    <script>
+        // Oder has been placed pop-up message
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            document.getElementById('overlay').style.display = 'flex'; 
+
+            setTimeout(function() { // Hide the message after 3 seconds
+                document.getElementById('overlay').style.display = 'none';
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
