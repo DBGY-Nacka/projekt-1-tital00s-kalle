@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>Amazon</h1>
+        <img src="static\icons\good_logo.png.png"  alt="Image not found" style="width: 300px; height: 220px;">
         <script>
             function redirectToCheckout() {
                 window.location.href = '/checkout'; 
@@ -103,7 +103,17 @@
                 <img src="{{ path[2] }}" alt="Image not found">
                 <div>{{ path[1] }}&#36;</div>
                 <!-- Adjust the onclick event to pass item details -->
-                <button onclick="addToCart('{{ path[0] }}', '{{ path[3] }}', '{{ path[1] }}')" class="add-to-cart-button">Add to Cart</button>
+                <button onclick="addToCart('{{ path[0] }}', '{{ path[3] }}', '{{ path[1] }}')" class="add-to-cart-button">
+                <img src="static\icons\add-to-cart-icon-add-to-card-button-on-transparent-background-free-png.webp" 
+                alt="Add to cart" style="width: 120px; height: 60px;">
+                <style>
+                    .add-to-cart-button {
+                        border: none;
+                        background-color: white;
+                    }
+                </style>
+                </button>
+
             </div>
             {% endfor %}
 
