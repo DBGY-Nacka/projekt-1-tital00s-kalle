@@ -1,4 +1,6 @@
+
 body {
+  /* Standard color */
     background-color: #f4f4f4;
     color: rgb(67, 65, 65);
     font-family:"Calibri";
@@ -7,11 +9,13 @@ body {
 }
 
 .color-container {
+  /* Text color for filter side */
     text-align: left;
     padding-left: 10px;
 }
 
 .main-container {
+  /* Background color  */
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-gap: 10px;
@@ -28,6 +32,7 @@ body {
 
 
 .item-container > div {
+  /* Each product square */
     background-color: rgb(255, 255, 255);
     text-align: center;
     padding: 10px;
@@ -37,6 +42,7 @@ body {
   }
 
   .item-container > div > img {
+    /* Image of each product */
     padding: 10px;
     height: 200px;
     aspect-ratio: 1 / 1;
@@ -51,6 +57,7 @@ body {
   }
 
 .top-container > button {
+  /* Category buttons */
     background-color: #ff9404;
     text-align: center;
     padding: 20px 0;
@@ -61,6 +68,7 @@ body {
   }
 
 .top-container > button:hover {
+  /* Category button hover color */
     background-color: rgb(103, 158, 239);
     text-align: center;
     padding: 20px 0;
@@ -69,7 +77,9 @@ body {
     border-radius: 20px;
     border: none;
   }
+  
 aside {
+  /* Filter to the left side */ 
     background-color: rgb(67, 65, 65);
     color: white;  
     text-align: center;
