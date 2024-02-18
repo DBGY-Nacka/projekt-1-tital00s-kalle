@@ -55,9 +55,14 @@
         <!-- Creates filtering at the left side --> 
         <aside>
             <h2>Filter</h2>
-            <p>Price</p>
-            <input type="range" min="0" max="1000" value="500" class="slider" id="myRange" oninput="updateSliderValue()">
-            <span id="sliderValue">500</span>
+
+            <p>Price range</p>
+            <input type="range" min="0" max="1000" value="0" class="slider" id="minRange" oninput="updateSliderValue()">
+            <span id="minValueDisplay">0</span>
+
+            <input type="range" min="0" max="1000" value="1000" class="slider" id="maxRange" oninput="updateSliderValue()">
+            <span id="maxValueDisplay">1000</span>
+
             <p>Color</p>
             <div class="color-container">
                 <input type="checkbox" id="black" name="black" value="color">
@@ -125,28 +130,30 @@
         <p>&copy; Copyright 2024 Amazon.se</p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         function updateSliderValue() {
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("sliderValue");
-            output.innerHTML = slider.value;
-
-            // Send the slider value to the Flask backend
+            var minSlider = document.getElementById("minRange");
+            var maxSlider = document.getElementById("maxRange");
+        
+            // Update display values
+            document.getElementById("minValueDisplay").innerHTML = minSlider.value;
+            document.getElementById("maxValueDisplay").innerHTML = maxSlider.value;
+        
+            // Send AJAX request with both values
             $.ajax({
-                url: "/slider",  // The URL to handle the slider value in the Flask app
-                type: "post",
+                url: "/slider", // Ensure this URL matches your Flask route for handling slider values
+                type: "POST",
                 contentType: "application/json",
-                data: JSON.stringify({sliderValue: slider.value}),
+                data: JSON.stringify({minValue: minSlider.value, maxValue: maxSlider.value}),
                 success: function(response) {
-                    // Handle success (you can update the UI based on the response if needed)
                     console.log(response);
                 },
                 error: function(error) {
-                    // Handle error
                     console.log(error);
                 }
             });
-        }
+        }        
     </script>
 </body>
 </html>
