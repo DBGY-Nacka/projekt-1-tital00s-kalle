@@ -28,8 +28,8 @@ def products():
 
 def handle_slider():
     data = request.get_json()
-    slider_value_min = data.get('minValue')
-    slider_value_max = data.get('maxValue')
+    slider_value_min = min(data.get('minValue'), data.get('maxValue'))
+    slider_value_max = max(data.get('minValue'), data.get('maxValue'))
 
     print(f"Min Slider Value: {slider_value_min}, Max Slider Value: {slider_value_max}")
     
