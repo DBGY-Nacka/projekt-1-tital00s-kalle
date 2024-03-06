@@ -22,6 +22,10 @@ Libraries needed to download:
 flask
 sqlite3
 
+If you want view the database, either download DB Browser (SQLite) or download the SQLite Viewer extension.
+
+
+
 To run the code, simply run app.py. Then follow the given local host link to view the website.
 
 
