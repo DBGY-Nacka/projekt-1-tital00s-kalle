@@ -6,13 +6,21 @@ function redirectToProducts(categoryName) {
     window.location.href = '/products?category=' + categoryName;
 }
 
+
 function addToCart(itemName, itemId, itemPrice) {
+// This function adds an item to the cart
+// If the item already exists in the cart, its quantity is increased by 1. 
+// If not, a new entry is added to the cart with the provided item details.
+ 
     console.log(`Adding to cart: ${itemName}, ID: ${itemId}, Price: ${itemPrice}`);
     let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
     let found = cart.find(item => item.id === itemId);
+    
     if (found) {
         found.quantity += 1; 
-    } else {
+    } 
+    
+    else {
         cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1 });
     }
     sessionStorage.setItem('cart', JSON.stringify(cart)); 
@@ -41,3 +49,7 @@ function updateSliderValue() {
         }
     });
 }      
+
+document.getElementById('sortPriceBtn').addEventListener('click', function() {
+    window.location.href = '/products?sort=price';
+});

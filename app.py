@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify, session
 from getdata import get_images
-
+import sqlite3
 
 app = Flask(__name__)
 
@@ -17,6 +17,29 @@ def home():
 
 
 app.secret_key = 'your_secret_key'
+
+@app.route('/products')
+def products():
+    sort = request.args.get('sort')
+    category = request.args.get('category')
+    image_paths = get_images(category, sort=sort)
+    return render_template('products.html', image_paths=image_paths)
+
+def get_images(category, sort=None):
+    conn = sqlite3.connect("webshop.db")
+    cursor = conn.cursor()
+    query = "SELECT name, price, image, productid FROM Products"
+    params = ()
+    if category:
+        query += " WHERE category = ?"
+        params = (category,)
+    if sort == "price":
+        query += " ORDER BY price ASC"
+    cursor.execute(query, params)
+    images = cursor.fetchall()
+    conn.close()
+    return [(img[0], img[1], img[2], img[3]) for img in images]
+
 
 
 @app.route('/checkout')
@@ -36,8 +59,8 @@ def checkout():
     return render_template('checkout.html', cart_items=cart_items, total_price=total_price)
 
 
-@app.route('/products')
-def products():
+@app.route('/products_by_category')
+def products_by_category():
     """
     Route to each category button, is used to display products
     by category. Retrieves category name from each button.

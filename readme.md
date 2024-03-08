@@ -1,8 +1,8 @@
-Product Hub Webiste
+Product Hub Website
 
-This is a webiste for a product shopping company. The purpose is to create a website that feels trustworthy, 
-and also is pleasing for each customer. Many of us experience that some webistes are difficult to 
-navigate trough. Therefor we have made a simple yet effective website.
+This is a webiste for a product shopping company. The purpose is to create a pleasing and trustworthy website for the customer. 
+Many websites can be overwhelming and hard to navigate.
+Therefor we have made a simple, yet effective website.
 
 It is developed using html, javascript and css to style the webiste. Combined with python and flask as the framework.
 
@@ -23,8 +23,6 @@ flask
 sqlite3
 
 If you want view the database, either download DB Browser (SQLite) or download the SQLite Viewer extension.
-
-
 
 To run the code, simply run app.py. Then follow the given local host link to view the website.
 
