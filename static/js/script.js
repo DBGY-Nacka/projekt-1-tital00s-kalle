@@ -41,3 +41,7 @@ function updateSliderValue() {
         }
     });
 }      
+
+document.getElementById('sortPriceBtn').addEventListener('click', function() {
+    window.location.href = '/products?sort=price';
+});
