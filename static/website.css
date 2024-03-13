@@ -11,7 +11,7 @@ body {
 .color-container {
   /* Text color for filter side */
     text-align: left;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 .main-container {
@@ -29,7 +29,6 @@ body {
     grid-gap: 10px;
     background-color: #BEBFC5;
   }
-
 
 .item-container > div {
   /* Each product square */
@@ -83,6 +82,7 @@ aside {
     background-color: #726E97;
     color: white;  
     text-align: left;
+    padding-left: 25px;
     border-radius: 30px;
 }
 
