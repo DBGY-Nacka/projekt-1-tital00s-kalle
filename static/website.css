@@ -11,7 +11,7 @@ body {
 .color-container {
   /* Text color for filter side */
     text-align: left;
-    padding-left: 10px;
+    padding-left: 70px;
 }
 
 .main-container {
@@ -83,6 +83,7 @@ aside {
     background-color: #726E97;
     color: white;  
     text-align: left;
+    padding: 10px;
     border-radius: 30px;
 }
 
