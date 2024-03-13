@@ -20,7 +20,7 @@ def products():
     sort = request.args.get('sort')
     category = request.args.get('category')
     image_paths = get_images(category, sort=sort)
-    return render_template('products.html', image_paths=image_paths)    
+    return render_template('products.html', image_paths=image_paths, category=category)    
 
 @app.route('/checkout')
 def checkout():
