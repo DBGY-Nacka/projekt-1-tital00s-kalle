@@ -6,13 +6,15 @@
     <meta charset="UTF-8">
     <title>Checkout</title>
 </head>
+
 <body>
     <div class="container">
         <h2>Checkout</h2>
         <div class="cart-items">
             <h3>Your Cart</h3>
 
-            <div id="cart-items-container"> <!-- Display the cart items using JavaScript -->
+            <div id="cart-items-container"> 
+                <!-- Display the cart items using JavaScript -->
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
@@ -41,13 +43,14 @@
                 </script>
             </div>
 
-            <ul> <!-- Display the cart items -->
+            <ul> <!-- Display the cart items with price and amount -->
                 {% for item in cart_items %}
                     <li>{{ item.name }} - ${{ item.price }} x {{ item.quantity }}</li>
                 {% endfor %}
             </ul>
         </div>
 
+        <!-- Checkout form, no real funktion -->
         <form id="checkoutForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -62,7 +65,8 @@
         </form>
     </div>
 
-    <div id="overlay"> <!-- Overlay and pop-up message -->
+    <!-- Overlay and pop-up message -->
+    <div id="overlay"> 
         <div id="message">Your order has been placed!</div>
     </div>
 
