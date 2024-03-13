@@ -8,13 +8,16 @@
 </head>
 <body>
     <header>
+        <!-- <Show the company logo> -->
         <img src="static\icons\good_logo.png.png"  alt="Image not found" style="width: 300px; height: 220px;">
 
     <div style="text-align: right;">
+        <!--Cart button-->
         <button onclick="redirectToCheckout('Cart')" class="button">
             <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
         </button>
 
+        <!--User logg in/register button-->
         <div style="text-align: left;">
             <a href="/login" style="color: white;">Login</a>
         </div>
@@ -22,6 +25,7 @@
             <a href="/register" style="color: white;">Register</a>
         </div>
 
+        <!--Search button-->
         <div style="text-align: right;">
             <form action="/search" method="post">
                 <input type="text" name="search" placeholder="Search..">
@@ -31,6 +35,7 @@
     </header>
 
     <div class="top-container">
+        <!-- Catagory buttons -->
         <button id = "HomeBUtton" onclick="redirectToProducts('Home')" class="button">Home</button>
         <button id = "EletronicsButton" onclick="redirectToProducts('Electronics')" class="button">Electronics</button>
         <button id = "GamesButton" onclick="redirectToProducts('Games')" class="button">Games</button>
@@ -45,18 +50,19 @@
 
     <div class="main-container">
         <aside>
+            <!-- Filter section -->
             <h2>Filter</h2>
-
             <p>Price range</p>
+
+            <!-- Slider for price range -->
             <input type="range" min="0" max="1000" value="0" class="" id="minRange" oninput="updateSliderValue()">
             <span id="minValueDisplay">0</span>
-
             <input type="range" min="0" max="1000" value="1000" class="slider" id="maxRange" oninput="updateSliderValue()">
             <span id="maxValueDisplay">1000</span>
             
             <p>Color</p>
-
             <div class="color-container">
+                <!-- Buttons for color filter -->
                 <input type="checkbox" id="black" name="black" value="color">
                 <label for="black"> Black</label><br>
                 <input type="checkbox" id="white" name="white" value="color">
@@ -79,15 +85,19 @@
         </aside>
 
         <div class="item-container">
+            <!-- Creats add to cart button for each product -->
             {% for path in image_paths %}
             <div>
                 <div>{{ path[0] }}</div>
                 <img src="{{ path[2] }}" alt="Image not found">
                 <div>{{ path[1] }}&#36;</div>
-                <!-- Adjust the onclick event to pass item details -->
+
+                <!-- Add to cart button as an img with 3 args -->
                 <button onclick="addToCart('{{ path[0] }}', '{{ path[3] }}', '{{ path[1] }}')" class="add-to-cart-button">
                 <img src="static\icons\add-to-cart-icon-add-to-card-button-on-transparent-background-free-png.webp" 
                 alt="Add to cart" style="width: 120px; height: 60px;">
+
+                <!-- Remove border set bgC to white -->
                 <style>
                     .add-to-cart-button {
                         border: none;
@@ -97,14 +107,11 @@
                 </button>
             </div>
             {% endfor %}
-
-            
         </div>
-
     </div>
 
     <footer>
-        <p>&copy; Copyright 2024 Amazon.se</p>
+        <p>&copy; Copyright 2024 ProductHub.se</p>
     </footer>
 </body>
 </html>

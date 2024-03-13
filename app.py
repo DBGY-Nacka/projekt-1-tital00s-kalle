@@ -15,32 +15,12 @@ def home():
     """
     return render_template("index.html", image_paths=get_images(None))
 
-
-app.secret_key = 'your_secret_key'
-
 @app.route('/products')
 def products():
     sort = request.args.get('sort')
     category = request.args.get('category')
     image_paths = get_images(category, sort=sort)
-    return render_template('products.html', image_paths=image_paths)
-
-def get_images(category, sort=None):
-    conn = sqlite3.connect("webshop.db")
-    cursor = conn.cursor()
-    query = "SELECT name, price, image, productid FROM Products"
-    params = ()
-    if category:
-        query += " WHERE category = ?"
-        params = (category,)
-    if sort == "price":
-        query += " ORDER BY price ASC"
-    cursor.execute(query, params)
-    images = cursor.fetchall()
-    conn.close()
-    return [(img[0], img[1], img[2], img[3]) for img in images]
-
-
+    return render_template('products.html', image_paths=image_paths)    
 
 @app.route('/checkout')
 def checkout():
@@ -70,7 +50,7 @@ def products_by_category():
 
     """
     category = request.args.get('category')
-    return render_template('products.html', image_paths=get_images(category))
+    return render_template('products.html', image_paths=get_images(category, None))
 
 
 @app.route('/slider', methods=['POST'])
