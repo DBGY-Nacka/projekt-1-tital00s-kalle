@@ -1,6 +1,6 @@
 import sqlite3
 
-def get_images(category):
+def get_images(category, sort=None):
     
     """
     Retrieves image information from the database based on the specified category,
@@ -28,13 +28,15 @@ def get_images(category):
     
     conn = sqlite3.connect("webshop.db")
     cursor = conn.cursor()
-    
+    query = "SELECT name, price, image, productid FROM Products"
+    params = ()
     if category:
-        cursor.execute("SELECT name, price, image, productid FROM Products WHERE category = ?", (category,))
-    else:
-        cursor.execute("SELECT name, price, image, productid FROM Products")
-
+        query += " WHERE category = ?"
+        params = (category,)
+    if sort == "price":
+        query += " ORDER BY price ASC"
+    cursor.execute(query, params)
     images = cursor.fetchall()
-    image_urls =  [(img[0], img[1], img[2], img[3]) for img in images]
     conn.close()
-    return image_urls
+    return [(img[0], img[1], img[2], img[3]) for img in images]
+
