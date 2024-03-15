@@ -28,6 +28,12 @@ If you want view the database, either download DB Browser (SQLite) or download t
 
 To run the code, simply run app.py. Then follow the given local host link to view the website.
 
+Disclaimer:
+At the moment some functions and elements are just placeholder for future devlopment. 
+For example, login page and the sorting system which is not fully developed.
+Unfortunately not all aspects of the webiste are updated dynamically, so that's one 
+aspect to improve upon.
+
 Linus Warnemo
 Leo Trygg
 Teo Hoppe
