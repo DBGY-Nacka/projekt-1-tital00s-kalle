@@ -50,6 +50,17 @@ function updateSliderValue() {
     });
 }      
 
-document.getElementById('sortPriceBtn').addEventListener('click', function() {
-    window.location.href = '/products?sort=price';
+document.addEventListener('DOMContentLoaded', function() {
+    var sortPriceBtn = document.getElementById('sortPriceBtn');
+    if (sortPriceBtn) {
+        sortPriceBtn.addEventListener('click', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            if (category) {
+                window.location.href = '/products?category=' + category + '&sort=price';
+            } else {
+                window.location.href = '/products?sort=price'; 
+            }
+        });
+    }
 });
