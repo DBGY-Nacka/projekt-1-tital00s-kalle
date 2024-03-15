@@ -64,3 +64,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+    let cartContainer = document.getElementById('cart-items-container');
+    let totalPrice = 0; 
+
+    if (cart.length > 0) {
+        cart.forEach(item => {
+            let itemElement = document.createElement('div');
+            itemElement.textContent = `${item.name} - $${item.price} x ${item.quantity}`;
+            cartContainer.appendChild(itemElement);
+
+            // Calculate total price
+            totalPrice += item.price * item.quantity;
+        });
+
+        // Create and display total price element
+        let totalPriceElement = document.createElement('p');
+        totalPriceElement.className = 'total-price';
+        totalPriceElement.textContent = `Total Price: $${totalPrice.toFixed(2)}`; // Format to 2 decimal places
+        document.querySelector('.cart-items').appendChild(totalPriceElement);
+    } else {
+        cartContainer.textContent = 'Your cart is empty.';
+    }
+});
