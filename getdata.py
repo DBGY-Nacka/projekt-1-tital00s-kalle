@@ -13,8 +13,8 @@ def get_images(category, sort=None):
     - sort (str) : Specified sorting argument, for example price
 
     Returns:
-    - List of tuples containing image information.
-      Each tuple includes:
+        - List of tuples containing image information.
+        - Each tuple includes:
         - name (str): The name of the product.
         - price (float): The price of the product.
         - image (str): The URL or path to the image file.

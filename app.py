@@ -11,7 +11,7 @@ def home():
     Simple route to home page, renders index.html
 
     Returns:
-        - Render template for index.html, return all images and products
+        Render template for index.html, includes all images and products
     """
     return render_template("index.html", image_paths=get_images(None))
 
@@ -32,27 +32,13 @@ def checkout():
     Also calculates the total price.
 
     Returns:
-        - Render template for checkout, including every item in the cart and the total price
+        Render template for checkout, including every item in the cart and the total price
     """
 
     cart_items = session.get('cart_items', [])
     total_price = sum(item['price'] * item['quantity'] for item in cart_items)
 
     return render_template('checkout.html', cart_items=cart_items, total_price=total_price)
-
-
-@app.route('/products_by_category')
-def products_by_category():
-    """
-    Route to each category button, is used to display products
-    by category. Retrieves category name from each button.
-
-    Returns:
-        - Render template for products.html file, includes all images with correct category
-
-    """
-    category = request.args.get('category')
-    return render_template('products.html', image_paths=get_images(category, None))
 
 
 @app.route('/slider', methods=['POST'])
