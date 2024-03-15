@@ -15,12 +15,14 @@ def home():
     """
     return render_template("index.html", image_paths=get_images(None))
 
+
 @app.route('/products')
 def products():
     sort = request.args.get('sort')
     category = request.args.get('category')
     image_paths = get_images(category, sort=sort)
-    return render_template('products.html', image_paths=image_paths, category=category)    
+    return render_template('products.html', image_paths=image_paths, category=category)
+
 
 @app.route('/checkout')
 def checkout():

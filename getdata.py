@@ -1,7 +1,7 @@
 import sqlite3
 
+
 def get_images(category, sort=None):
-    
     """
     Retrieves image information from the database based on the specified category,
     or retrieves all images if no category is specified.
@@ -9,7 +9,7 @@ def get_images(category, sort=None):
     Args:
     - category (str): The category of products to retrieve images for.
                       If None, retrieves images for all categories.
-                      
+
     - sort (str) : Specified sorting argument, for example price
 
     Returns:
@@ -20,7 +20,7 @@ def get_images(category, sort=None):
         - image (str): The URL or path to the image file.
         - productid (int): The unique identifier of the product.
     """
-    
+
     conn = sqlite3.connect("webshop.db")
     cursor = conn.cursor()
     query = "SELECT name, price, image, productid FROM Products"
@@ -34,4 +34,3 @@ def get_images(category, sort=None):
     images = cursor.fetchall()
     conn.close()
     return [(img[0], img[1], img[2], img[3]) for img in images]
-
