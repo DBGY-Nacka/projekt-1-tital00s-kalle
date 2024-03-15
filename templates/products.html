@@ -8,13 +8,16 @@
 </head>
 <body>
     <header>
+        <!-- <Show the company logo> -->
         <img src="static\icons\good_logo.png.png"  alt="Image not found" style="width: 300px; height: 220px;">
-        <div style="text-align: right;">
-            <button onclick="redirectToCheckout('Cart')" class="button">
-                <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
-            </button>
-        </div>
 
+    <div style="text-align: right;">
+        <!--Cart button-->
+        <button onclick="redirectToCheckout('Cart')" class="button">
+            <img src="static/icons/cart.png" alt="Cart" style="width: 30px; height: 30px;">
+        </button>
+
+        <!--User logg in/register button-->
         <div style="text-align: left;">
             <a href="/login" style="color: white;">Login</a>
         </div>
@@ -22,6 +25,7 @@
             <a href="/register" style="color: white;">Register</a>
         </div>
 
+        <!--Search button-->
         <div style="text-align: right;">
             <form action="/search" method="post">
                 <input type="text" name="search" placeholder="Search..">
