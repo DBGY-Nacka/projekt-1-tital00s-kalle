@@ -71,7 +71,14 @@
     </div>
 
     <script>
-        // Oder has been placed pop-up message
+
+
+    </script>
+</body>
+</html>
+
+    <script>
+        // Order has been placed pop-up message
         document.getElementById('checkoutForm').addEventListener('submit', function(event) {
             event.preventDefault(); 
             document.getElementById('overlay').style.display = 'flex'; 
@@ -79,6 +86,22 @@
             setTimeout(function() { // Hide the message after 3 seconds
                 document.getElementById('overlay').style.display = 'none';
             }, 3000);
+        });
+        // Clear forms and array
+        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            document.getElementById('overlay').style.display = 'flex';
+            
+            // Clear form inputs
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('address').value = '';
+
+            // Clear cart array
+            sessionStorage.setItem('cart', JSON.stringify([]));
+            cart_items = [];
+            document.getElementById('cart-items-container').textContent = 'Your cart is empty.';
+            document.querySelector('.total-price').textContent = '';
         });
     </script>
 </body>
